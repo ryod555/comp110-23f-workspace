@@ -1,8 +1,8 @@
-"""Game that only completes when you guess the right number"""
+"""Game that only completes when you guess the right number."""
 
 from random import randint
 
-secret: int = randint(1,10)
+secret: int = randint(1, 10)
 guess: int = int(input("Guess a number between 1 and 10: "))
 max_tries: int = 2
 tries_count: int = 0
@@ -18,7 +18,7 @@ while guess != secret and (tries_count < max_tries):
     guess = int(input("Guess again! You have " + str(int(2 - tries_count)) + " tries left."))
     tries_count += 1
 
-if (tries_count == max_tries) and (guess != secret) :
+if (tries_count == max_tries) and (guess != secret):
     print("You ran out of tries baby girl :=()")
 
 if guess == secret:
