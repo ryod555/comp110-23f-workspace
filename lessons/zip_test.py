@@ -1,7 +1,7 @@
 """Test my zip function."""
 
 from lessons.zip import zip
-__author__: "730660144"
+__author__ = "730660144"
 
 
 def test_list_even() -> None:
