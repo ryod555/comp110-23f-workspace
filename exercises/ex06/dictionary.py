@@ -5,7 +5,7 @@ __author__ = "730660144"
 
 def invert(diction: dict[str, str]) -> dict[str, str]:
     """Given a dictionary, inverts the keys and its values."""
-    inverted: dict[str, str] = dict()
+    inverted: dict[str, str] = {}
     for key in diction:
         inverted[diction[key]] = key
     return inverted
@@ -21,7 +21,7 @@ def favorite_color(names_colors: dict[str, str]) -> str:
             colors[names_colors[key]] = 1
     print(colors)
     favorite_val: int = 0
-    fav_col: str = ()
+    fav_col: str = ("")
     for key in colors:
         if int(colors[key]) > favorite_val:
             favorite_val = int(colors[key])
@@ -45,26 +45,17 @@ def alphabetizer(strings: list[str]) -> dict[str, list[str]]:
     alpha: dict[str, list[str]] = {}
     for i in range(len(strings)):
         if ((strings[i])[0]).lower() in alpha:
-            alpha[(strings[i])[0]].append(strings[i])
+            alpha[((strings[i])[0]).lower()].append(strings[i])
         else:
             alpha[(strings[i])[0].lower()] = [(strings[i])]
     return alpha
 
 
 def update_attendance(diction: dict[str, list[str]], day: str, student: str) -> dict[str, list[str]]:
+    """Given a dictionary, a day and student, will return the dictionary with the updated attendace."""
     if day in diction:
-        diction[day].append(student)
+        if student not in diction[day]:
+            diction[day].append(student)
     else:
-        diction[day] = student
+        diction[day] = [student]
     return diction
-
-
-def main():
-    attendance_log: dict = {"Monday": ["Vrinda", "Kaleb"], "Tuesday": ["Alyssa"]}
-    update_attendance(attendance_log, "Tuesday", "Vrinda")
-    update_attendance(attendance_log, "Wednesday", "Kaleb")
-    print(attendance_log)
-
-
-if __name__ == "__main__":
-    main()
